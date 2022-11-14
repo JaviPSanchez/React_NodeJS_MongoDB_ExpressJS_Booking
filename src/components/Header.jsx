@@ -13,10 +13,11 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import styles from "../styles/Global";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
-  // Evitar al hacer un refresh ver los componentes activados
+  // Date
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -25,6 +26,7 @@ const Header = ({ type }) => {
       key: "selection",
     },
   ]);
+  // Options
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -35,6 +37,7 @@ const Header = ({ type }) => {
   const navigate = useNavigate();
 
   const handleOption = (name, operation) => {
+    //We take the previous state (adult: 1, children: 0, room: 1)
     setOptions((prev) => {
       return {
         ...prev,
@@ -52,7 +55,7 @@ const Header = ({ type }) => {
       <div
         className={
           type === "list"
-            ? "w-full max-w-5xl mt-5 mb-28 listMode"
+            ? "w-full max-w-5xl mt-5 mb-28"
             : "w-full max-w-5xl mt-5 mb-28"
         }
       >
@@ -130,64 +133,64 @@ const Header = ({ type }) => {
                   className="text-stone-400"
                 >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
                 {openOptions && (
-                  <div className="options">
-                    <div className="optionItem">
-                      <span className="text-stone-300">Adult</span>
-                      <div className="optionCounter">
+                  <div className="absolute z-2 top-[56px] bg-white text-stone-600 rounded-md shadow-md">
+                    <div className="w-[200px] flex justify-between m-4">
+                      <span className="optionText">Adult</span>
+                      <div className="flex align-center gap-2.5 text-m text-black">
                         <button
                           disabled={options.adult <= 1}
-                          className="optionCounterButton"
+                          className="w-[30px] h-[30px] border-2 border-solid border-[#0071c2]"
                           onClick={() => handleOption("adult", "d")}
                         >
                           -
                         </button>
-                        <span className="optionCounterNumber">
+                        <span className={styles.optionCounterNumber}>
                           {options.adult}
                         </span>
                         <button
-                          className="optionCounterButton"
+                          className={styles.optionCounterButton}
                           onClick={() => handleOption("adult", "i")}
                         >
                           +
                         </button>
                       </div>
                     </div>
-                    <div className="optionItem">
+                    <div className="w-[200px] flex justify-between m-4">
                       <span className="optionText">Children</span>
-                      <div className="optionCounter">
+                      <div className="flex align-center gap-2.5 text-m text-black">
                         <button
                           disabled={options.children <= 0}
-                          className="optionCounterButton"
+                          className={styles.optionCounterButton}
                           onClick={() => handleOption("children", "d")}
                         >
                           -
                         </button>
-                        <span className="optionCounterNumber">
+                        <span className={styles.optionCounterNumber}>
                           {options.children}
                         </span>
                         <button
-                          className="optionCounterButton"
+                          className={styles.optionCounterButton}
                           onClick={() => handleOption("children", "i")}
                         >
                           +
                         </button>
                       </div>
                     </div>
-                    <div className="optionItem">
+                    <div className="w-[200px] flex justify-between m-4">
                       <span className="optionText">Room</span>
-                      <div className="optionCounter">
+                      <div className="flex align-center gap-2.5 text-m text-black">
                         <button
                           disabled={options.room <= 1}
-                          className="optionCounterButton"
+                          className={styles.optionCounterButton}
                           onClick={() => handleOption("room", "d")}
                         >
                           -
                         </button>
-                        <span className="optionCounterNumber">
+                        <span className={styles.optionCounterNumber}>
                           {options.room}
                         </span>
                         <button
-                          className="optionCounterButton"
+                          className={styles.optionCounterButton}
                           onClick={() => handleOption("room", "i")}
                         >
                           +
