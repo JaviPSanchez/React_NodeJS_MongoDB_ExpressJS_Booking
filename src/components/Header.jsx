@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/Global";
 
 const Header = ({ type }) => {
+  console.log(type);
   const [destination, setDestination] = useState("");
   // Date
   const [openDate, setOpenDate] = useState(false);
@@ -51,12 +52,12 @@ const Header = ({ type }) => {
   };
 
   return (
-    <div className="bg-primary text-white flex justify-center relative">
+    <div className="bg-primary text-white flex justify-center relative z-10">
       <div
         className={
           type === "list"
             ? "w-full max-w-5xl mt-5 mb-28"
-            : "w-full max-w-5xl mt-5 mb-28"
+            : "w-full max-w-5xl mt-5 mb-0"
         }
       >
         <div className="flex mb-12 gap-10">
@@ -81,7 +82,7 @@ const Header = ({ type }) => {
             <span>Airport taxis</span>
           </div>
         </div>
-        {type !== "list" && (
+        {type === "list" && (
           <>
             <h1 className="text-3xl font-bold">
               A lifetime of discounts? It's Genius.
@@ -121,7 +122,7 @@ const Header = ({ type }) => {
                     onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
-                    className="absolute top-[56px] z-2"
+                    className="absolute top-[56px] z-2 shadow-xl"
                     minDate={new Date()}
                   />
                 )}

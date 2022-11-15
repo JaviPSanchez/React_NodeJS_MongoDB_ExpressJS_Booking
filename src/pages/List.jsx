@@ -16,10 +16,10 @@ const List = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <Header />
       <div className="flex justify-center mt-[20px]">
         <div className="w-full max-w-5xl flex gap-5">
-          <div className="listSearch">
+          <div className="flex-1 bg-yellow">
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
@@ -85,7 +85,7 @@ const List = () => {
             </div>
             <button>Search</button>
           </div>
-          <div className="listResult">
+          <div className="flex-3">
             <SearchItem />
             <SearchItem />
             <SearchItem />
