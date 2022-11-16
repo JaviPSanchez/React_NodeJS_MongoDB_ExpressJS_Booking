@@ -6,27 +6,34 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../components/SearchItem";
 
+import styles from "../styles/Global";
+
 const List = () => {
+  //Para usar los states que pasamos de Header
   const location = useLocation();
+  // console.log(location);
   const [destination, setDestination] = useState(location.state.destination);
   const [date, setDate] = useState(location.state.date);
-  const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
+
+  const [openDate, setOpenDate] = useState(false);
 
   return (
     <div>
       <Navbar />
       <Header />
-      <div className="flex justify-center mt-[20px]">
-        <div className="w-full max-w-5xl flex gap-5">
-          <div className="flex-1 bg-yellow">
-            <h1 className="lsTitle">Search</h1>
-            <div className="lsItem">
+      <div className="flex justify-center mt-5">
+        <div className="listWrapper w-full max-w-5xl flex gap-5">
+          <div
+            className={`flex-1 bg-yellow p-5 rounded-xl sticky top-6 h-fit max-h-fit, ${styles.listSearch}`}
+          >
+            <h1 className="text-2xl text-[#555555] mb-5">Search</h1>
+            <div className={styles.lsItem}>
               <label>Destination</label>
-              {/* <input placeholder={destination} type="text" /> */}
+              <input placeholder={destination} type="text" />
             </div>
-            <div className="lsItem">
-              <label>Check-in Date</label>
+            <div className={styles.lsItem}>
+              <label className=" text-md">Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
                 "MM/dd/yyyy"
@@ -39,46 +46,46 @@ const List = () => {
                 />
               )}
             </div>
-            <div className="lsItem">
+            <div className={styles.lsItem}>
               <label>Options</label>
-              <div className="lsOptions">
-                <div className="lsOptionItem">
+              <div className="p-2">
+                <div className={styles.lsOptionItem}>
                   <span className="lsOptionText">
                     Min price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOptionInput" />
+                  <input type="number" className={styles.lsOptionInput} />
                 </div>
-                <div className="lsOptionItem">
+                <div className={styles.lsOptionItem}>
                   <span className="lsOptionText">
                     Max price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOptionInput" />
+                  <input type="number" className={styles.lsOptionInput} />
                 </div>
-                <div className="lsOptionItem">
+                <div className={styles.lsOptionItem}>
                   <span className="lsOptionText">Adult</span>
                   <input
                     type="number"
                     min={1}
-                    className="lsOptionInput"
-                    // placeholder={options.adult}
+                    className={styles.lsOptionInput}
+                    placeholder={options.adult}
                   />
                 </div>
-                <div className="lsOptionItem">
+                <div className={styles.lsOptionItem}>
                   <span className="lsOptionText">Children</span>
                   <input
                     type="number"
                     min={0}
-                    className="lsOptionInput"
-                    // placeholder={options.children}
+                    className={styles.lsOptionInput}
+                    placeholder={options.children}
                   />
                 </div>
-                <div className="lsOptionItem">
+                <div className={styles.lsOptionItem}>
                   <span className="lsOptionText">Room</span>
                   <input
                     type="number"
                     min={1}
-                    className="lsOptionInput"
-                    // placeholder={options.room}
+                    className={styles.lsOptionInput}
+                    placeholder={options.room}
                   />
                 </div>
               </div>

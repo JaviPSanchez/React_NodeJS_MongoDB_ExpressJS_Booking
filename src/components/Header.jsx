@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/Global";
 
 const Header = ({ type }) => {
-  console.log(type);
+  //Cada vez que cambiemos el input destination, actualizaremos :  onChange={(e) => setDestination(e.target.value)}
   const [destination, setDestination] = useState("");
   // Date
   const [openDate, setOpenDate] = useState(false);
@@ -48,6 +48,7 @@ const Header = ({ type }) => {
   };
 
   const handleSearch = () => {
+    // Pasamos en el state tambien, destination, date y options
     navigate("/hotels", { state: { destination, date, options } });
   };
 
