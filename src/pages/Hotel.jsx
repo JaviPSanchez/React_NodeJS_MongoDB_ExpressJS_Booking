@@ -57,59 +57,63 @@ const Hotel = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
-      <div className="hotelContainer">
+      <Header type={"list"} />
+      <div className="flex flex-col items-center mt-5">
         {open && (
-          <div className="slider">
+          <div className={styles.slider}>
             <FontAwesomeIcon
               icon={faCircleXmark}
-              className="close"
+              className={styles.close}
               onClick={() => setOpen(false)}
             />
             <FontAwesomeIcon
               icon={faCircleArrowLeft}
-              className="arrow"
+              className={styles.arrow}
               onClick={() => handleMove("l")}
             />
-            <div className="sliderWrapper">
-              <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+            <div className={styles.sliderWrapper}>
+              <img
+                src={photos[slideNumber].src}
+                alt=""
+                className={styles.sliderImg}
+              />
             </div>
             <FontAwesomeIcon
               icon={faCircleArrowRight}
-              className="arrow"
+              className={styles.arrow}
               onClick={() => handleMove("r")}
             />
           </div>
         )}
-        <div className="hotelWrapper">
-          <button className="bookNow">Reserve or Book Now!</button>
-          <h1 className="hotelTitle">Tower Street Apartments</h1>
-          <div className="hotelAddress">
+        <div className={styles.hotelWrapper}>
+          <button className={styles.bookNow}>Reserve or Book Now!</button>
+          <h1 className={styles.hotelTitle}>Tower Street Apartments</h1>
+          <div className={styles.hotelAddress}>
             <FontAwesomeIcon icon={faLocationDot} />
             <span>Elton St 125 New york</span>
           </div>
-          <span className="hotelDistance">
+          <span className={styles.hotelDistance}>
             Excellent location - 500m from center
           </span>
-          <span className="hotelPriceHighlight">
+          <span className={styles.hotelPriceHighlight}>
             Book a stay over $114 at this property and get a free airport taxi
           </span>
-          <div className="hotelImages">
+          <div className={styles.hotelImages}>
             {photos.map((photo, i) => (
-              <div className="hotelImgWrapper" key={i}>
+              <div className={styles.hotelImgWrapper}>
                 <img
                   onClick={() => handleOpen(i)}
                   src={photo.src}
                   alt=""
-                  className="hotelImg"
+                  className={styles.hotelImg}
                 />
               </div>
             ))}
           </div>
-          <div className="hotelDetails">
-            <div className="hotelDetailsTexts">
-              <h1 className="hotelTitle">Stay in the heart of City</h1>
-              <p className="hotelDesc">
+          <div className={styles.hotelDetails}>
+            <div className={styles.hotelDetailsTexts}>
+              <h1 className={styles.hotelTitle}>Stay in the heart of City</h1>
+              <p className={styles.hotelDesc}>
                 Located a 5-minute walk from St. Florian's Gate in Krakow, Tower
                 Street Apartments has accommodations with air conditioning and
                 free WiFi. The units come with hardwood floors and feature a
@@ -118,12 +122,12 @@ const Hotel = () => {
                 also offered, as well as an electric tea pot and a coffee
                 machine. Popular points of interest near the apartment include
                 Cloth Hall, Main Market Square and Town Hall Tower. The nearest
-                airport is John Paul II International Kraków–Balice, 16.1 km
+                airport is John Paul II International Kraków-Balice, 16.1 km
                 from Tower Street Apartments, and the property offers a paid
                 airport shuttle service.
               </p>
             </div>
-            <div className="hotelDetailsPrice">
+            <div className={styles.hotelDetailsPrice}>
               <h1>Perfect for a 9-night stay!</h1>
               <span>
                 Located in the real heart of Krakow, this property has an

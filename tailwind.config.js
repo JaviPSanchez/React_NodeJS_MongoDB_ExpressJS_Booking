@@ -8,6 +8,9 @@ module.exports = {
         secondary: "#EEF1F6",
         tertiary: "#0e1133",
         green: "#008009",
+        greyLight: "#ebf3ff",
+        grey: "#555555",
+        blackCustom: "rgba(0, 0, 0, 0.613)",
 
         yellow: "#febb02",
 

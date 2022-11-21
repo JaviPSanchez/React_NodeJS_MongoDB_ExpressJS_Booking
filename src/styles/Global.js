@@ -47,10 +47,31 @@ const styles = {
     "bg-primaryLight text-white font-bold px-2 py-2 border-none cursor-pointer rounded-xl",
   lsItem:
     "flex flex-col gap-2 mb-5 [&>label]:text-xs [&>input]:h-8 [&>input]:border-none [&>input]:p-2 [&>span]:h-8 [&>span]:p-2 [&>span]:bg-white [&>span]:flex [&>span]:items-center [&>span]:cursor-pointer",
-  lsOptionItem: "flex justify-between mb-5 text-[#555555] text-xs",
+  lsOptionItem: "flex justify-between mb-5 text-grey text-xs",
   lsOptionInput: "w-12",
   listSearch:
     "[&>button]:p-2 [&>button]:bg-primaryLight [&>button]:text-white [&>button]:border-none [&>button]:w-full [&>button]:font-bold [&>button]:cursor-pointer",
+  hotelWrapper: "w-full max-w-5xl flex flex-col gap-2 relative",
+  bookNow:
+    "absolute top-10 right-0 border-none p-2.5 bg-primaryLight text-white font-bold rounded-md cursor-pointer",
+  hotelTitle: "text-2xl mt-10",
+  hotelAddress: "flex items-center gap-2 text-xl",
+  hotelDistance: "text-primaryLight text-bold",
+  hotelPriceHighlight: "text-green font-medium",
+  hotelImages: "flex flex-wrap justify-between",
+  hotelImgWrapper: "w-1/3",
+  hotelImg: "w-full object-cover cursor-pointer",
+  hotelDetails: "flex justify-between gap-10 mt-10",
+  hotelDetailsTexts: "flex-3",
+  hotelDesc: "text-sm mt-5",
+  hotelDetailsPrice:
+    "flex flex-col gap-10 flex-1 bg-greyLight p-5 [&>h1]:text-md [&>h1]:text-grey [&>span]:text-sm [&>button]:border-none [&>button]:p-5 [&>button]:bg-primaryLight [&>button]:text-white [&>button]:cursor-pointer [&>button]:rounded-xl",
+  slider:
+    "sticky top-0 left-0 w-screen h-screen bg-blackCustom z-999 flex items-center",
+  sliderWrapper: "w-full h-full flex justify-center items-center",
+  sliderImg: "w-[80%] h-10/12",
+  close: "absolute top-5 right-5 text-3xl text-greyLight cursor-pointer",
+  arrow: "m-5 text-4xl text-greyLight cursor-pointer",
 };
 
 export default styles;
